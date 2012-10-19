@@ -1,0 +1,23 @@
+<p>
+  <b>First name:</b>
+  <%=h @donor.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @donor.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @donor.email %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%=h @donor.phone_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<%= link_to 'Back', donors_path %>

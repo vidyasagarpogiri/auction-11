@@ -1,0 +1,33 @@
+<h1>Items Listing</h1>
+
+<table cellpadding="3" cellspacing="0" width="550">
+  <tr align="left">
+    <th>Title</th>
+    <th>Description</th>
+    <th>Minimum bid</th>
+    <th>Image url</th>
+  </tr>
+
+<% for item in @items %>
+  <tr align="left" <% if item.state=='CLOSED' %> bgcolor="lightgreen" <% end %> >
+    <td><%=h item.title %></td>
+    <td><%=h item.description %></td>
+    <td><%=h item.minimum_bid %></td>
+    <td><%=h item.image_url %></td>
+    <td><%= link_to 'Show', item %></td>
+		<% if item.state=='CREATED' %>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Close', :action => "new",:controller => "bid_details", :itemid => item %></td>
+	  <td><%= link_to 'Delete', item, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% else %>
+		<td></td>
+		<td></td>
+		<td></td>	
+		<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item', new_item_path %>

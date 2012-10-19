@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Queen's Park Charity Auction: <%=controller.get_title%></title>
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 	
+</head>
+
+<body>
+  <div id="page">
+    <div id="header" class="clearfix">
+      this is the page header
+      <div id="navAndSearch">
+        
+      </div>
+      
+      <br class="clear">
+      
+      <div id="topNav">
+        
+      </div>
+    </div>
+  
+  
+    <div class="errorSpace messaging">
+      <div class="errors"><!-- --></div>
+    </div>
+    <div class="messageSpace messaging">
+      <div class="messages"><!-- --></div>
+    </div>
+                      
+    <div id="main" class="clearfix">
+      <div class="mainHeader">&nbsp;</div>
+                                                  
+      <div id="content">
+      
+        <%= yield -%>
+
+      </div>
+          
+    <div class="mainFooter">&nbsp;</div>
+    
+   </body>
+</html>

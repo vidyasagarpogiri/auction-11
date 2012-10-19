@@ -1,0 +1,4 @@
+<div >
+		<h1><a href="http://<%= controller.get_hostname %>:3000/">Queen's Park Charity Auction</a></h1>
+<a href="/" >Home</a> - <a href="/items" class="nomi">Items</a> - <a href="/participants?type=bidder">Bidders</a> - <a href="/participants?type=donor">Donors</a> - <a href="mailto:paul.blizzard@gmail.ca" >Contact</a></div>
+

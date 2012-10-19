@@ -1,0 +1,5 @@
+class BidDetails < ActiveRecord::Base
+	belongs_to :item
+	belongs_to :participant
+
+end

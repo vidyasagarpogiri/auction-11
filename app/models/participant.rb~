@@ -1,0 +1,5 @@
+class Participant < ActiveRecord::Base
+	has_many :item
+
+	attr_accessor :state, :participant_type
+end

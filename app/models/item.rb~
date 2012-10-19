@@ -1,0 +1,8 @@
+class Item < ActiveRecord::Base
+
+	has_one :donor
+	has_one :bidder
+
+	validates_presence_of :donor, :title, :description, :minimum_bid, :state, :create_date, :modified_date
+
+end

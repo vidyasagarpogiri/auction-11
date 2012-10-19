@@ -1,0 +1,4 @@
+page.replace 'bidder_list', :partial => 'bidders/bidder_list', :object => @bidder
+page['item_donor_id'].value = @donor.id
+page['modalOverlay'].hide
+page['modalContainer'].hide

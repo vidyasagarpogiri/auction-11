@@ -1,0 +1,52 @@
+<script type="text/javascript">
+$(document).ready(function () {
+		$('a.modal_donors').click(function (e) {
+				e.preventDefault();
+				$('#basicModalContentDonors').modal();
+		});
+		
+		
+});
+</script>
+
+
+<h1>New item</h1>
+
+<% form_for(@item) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :minimum_bid %><br />
+    <%= f.text_field :minimum_bid %>
+  </p>
+	<p>
+    <%= f.label :donor_id %><br />
+    <div id="donor_list">
+			<%= render_partial "donors/donor_list" %>
+		</div>
+  </p>
+  <p>
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<div id="basicModalContentDonors" style='display:none'>
+	<%= render_partial "donors/new" %>
+	
+</div>
+
+
+
+	

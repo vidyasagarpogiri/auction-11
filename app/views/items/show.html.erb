@@ -1,0 +1,34 @@
+<p>
+  <b>Title:</b>
+  <%=h @item.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.description %>
+</p>
+
+<p>
+  <b>Minimum bid:</b>
+  <%=h @item.minimum_bid %>
+</p>
+<p>
+  <b>Donor:</b>
+  <%=h @item.donor_id %>
+</p>
+<p>
+  <b>Winning Bidder:</b>
+  <%=h @item.bidder_id %>
+</p>
+<p>
+  <b>Winning bid:</b>
+  <%=h @item.minimum_bid %>
+</p>
+<p>
+  <b>Image url:</b>
+  <%=h @item.image_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

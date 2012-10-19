@@ -1,0 +1,29 @@
+<h1>New Donor</h1>
+
+<% 
+	remote_form_for :donor, @donor, 
+	 			:url => { :action => "create",:controller => "donors"} do |h| %>
+  <%= h.error_messages %>
+
+  <p>
+    <%= h.label :first_name %><br />
+    <%= h.text_field :first_name %>
+  </p>
+  <p>
+    <%= h.label :last_name %><br />
+    <%= h.text_field :last_name %>
+  </p>
+  <p>
+    <%= h.label :email %><br />
+    <%= h.text_field :email %>
+  </p>
+  <p>
+    <%= h.label :phone_number %><br />
+    <%= h.text_field :phone_number %>
+  </p>
+  <p>
+    <%= h.submit "Create" %>
+  </p>
+<% end %>
+
+
