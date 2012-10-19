@@ -1,35 +1,34 @@
 class ItemsController < ApplicationController
-		layout 'global'
   # GET /items
-  # GET /items.xml
+  # GET /items.json
   def index
-    @items = Item.find(:all,:conditions => { :state => ["CREATED","CLOSED"]})
+    @items = Item.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @items }
+      format.json { render json: @items }
     end
   end
 
   # GET /items/1
-  # GET /items/1.xml
+  # GET /items/1.json
   def show
     @item = Item.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @item }
+      format.json { render json: @item }
     end
   end
 
   # GET /items/new
-  # GET /items/new.xml
+  # GET /items/new.json
   def new
     @item = Item.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @item }
+      format.json { render json: @item }
     end
   end
 
@@ -37,62 +36,51 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-	
+
   # POST /items
-  # POST /items.xml
+  # POST /items.json
   def create
     @item = Item.new(params[:item])
-		@item.create_date=Time.now
-		@item.modified_date=Time.now
+    @item.created_datetime=Time.now
+		@item.modified_datetime=Time.now
 		@item.state='CREATED'
 
     respond_to do |format|
       if @item.save
-        flash[:notice] = 'Item was successfully created.'
-        format.html { redirect_to(@item) }
-        format.xml  { render :xml => @item, :status => :created, :location => @item }
+        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.json { render json: @item, status: :created, location: @item }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end
-	
+
   # PUT /items/1
-  # PUT /items/1.xml
+  # PUT /items/1.json
   def update
-  @item = Item.find(params[:id])
-	@item.modified_date=Time.now
+    @item = Item.find(params[:id])
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        flash[:notice] = 'Item was successfully updated.'
-        format.html { redirect_to(@item) }
-        format.xml  { head :ok }
+        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /items/1
-  # DELETE /items/1.xml
+  # DELETE /items/1.json
   def destroy
     @item = Item.find(params[:id])
-    #@item.destroy
-	@item.modified_date=Time.now
-	@item.state='DELETED'
+    @item.destroy
 
-	respond_to do |format|
-      if @item.update_attributes(params[:item])
-        flash[:notice] = 'Item was deleted.'
-        format.html { redirect_to(items_url) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
-      end
+    respond_to do |format|
+      format.html { redirect_to items_url }
+      format.json { head :no_content }
     end
   end
 end

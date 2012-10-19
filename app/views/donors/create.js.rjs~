@@ -1,4 +1,0 @@
-
-page['item_donor_id'].value = @donor.id
-page['modalOverlay'].hide
-page['modalContainer'].hide

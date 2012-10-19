@@ -1,4 +1,0 @@
-<%= 
-			@donors = Donor.find(:all,:conditions => { :state => "CREATED"})
-			collection_select :item , :donor_id , @donors, :id, :lastname_and_firstname, {:include_blank => true} %>
-		<%= link_to (image_tag("icon.add.png"), {:controller => :donors, :action => :create}, :class => 'modal_donors') %>

@@ -1,43 +1,47 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionController::TestCase
-  def test_should_get_index
+  setup do
+    @item = items(:one)
+  end
+
+  test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:items)
   end
 
-  def test_should_get_new
+  test "should get new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_item
+  test "should create item" do
     assert_difference('Item.count') do
-      post :create, :item => { }
+      post :create, item: { created_datetime: @item.created_datetime, description: @item.description, minimum_bid: @item.minimum_bid, modified_datetime: @item.modified_datetime, state: @item.state, title: @item.title }
     end
 
     assert_redirected_to item_path(assigns(:item))
   end
 
-  def test_should_show_item
-    get :show, :id => items(:one).id
+  test "should show item" do
+    get :show, id: @item
     assert_response :success
   end
 
-  def test_should_get_edit
-    get :edit, :id => items(:one).id
+  test "should get edit" do
+    get :edit, id: @item
     assert_response :success
   end
 
-  def test_should_update_item
-    put :update, :id => items(:one).id, :item => { }
+  test "should update item" do
+    put :update, id: @item, item: { created_datetime: @item.created_datetime, description: @item.description, minimum_bid: @item.minimum_bid, modified_datetime: @item.modified_datetime, state: @item.state, title: @item.title }
     assert_redirected_to item_path(assigns(:item))
   end
 
-  def test_should_destroy_item
+  test "should destroy item" do
     assert_difference('Item.count', -1) do
-      delete :destroy, :id => items(:one).id
+      delete :destroy, id: @item
     end
 
     assert_redirected_to items_path

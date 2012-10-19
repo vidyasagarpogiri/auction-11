@@ -1,4 +1,0 @@
-page.replace 'donor_list', :partial => 'donors/donor_list', :object => @donor
-page['item_donor_id'].value = @donor.id
-page['modalOverlay'].hide
-page['modalContainer'].hide

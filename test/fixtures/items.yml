@@ -1,7 +1,17 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+  title: MyString
+  description: MyText
+  minimum_bid: 9.99
+  state: MyString
+  created_datetime: 2012-10-11 10:29:24
+  modified_datetime: 2012-10-11 10:29:24
+
+two:
+  title: MyString
+  description: MyText
+  minimum_bid: 9.99
+  state: MyString
+  created_datetime: 2012-10-11 10:29:24
+  modified_datetime: 2012-10-11 10:29:24

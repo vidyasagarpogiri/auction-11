@@ -1,32 +1,33 @@
-<h1>Items Listing</h1>
+<h1>Listing items</h1>
 
-<table cellpadding="3" cellspacing="0" width="550">
-  <tr align="left">
+<table>
+  <tr>
     <th>Title</th>
     <th>Description</th>
     <th>Minimum bid</th>
-    <th>Image url</th>
+    <th>State</th>
+    <th>Created datetime</th>
+    <th>Modified datetime</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
-<% for item in @items %>
-  <tr align="left" <% if item.state=='CLOSED' %> bgcolor="lightgreen" <% end %> >
-    <td><%=h item.title %></td>
-    <td><%=h item.description %></td>
-    <td><%=h item.minimum_bid %></td>
-    <td><%=h item.image_url %></td>
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.title %></td>
+    <td><%= item.description %></td>
+    <td><%= item.minimum_bid %></td>
+    <td><%= item.state %></td>
+    <td><%= item.created_datetime %></td>
+    <td><%= item.modified_datetime %></td>
     <td><%= link_to 'Show', item %></td>
-		<% if item.state=='CREATED' %>
-    <td><%= link_to 'Edit/Close', edit_item_path(item) %></td>
-	  <td><%= link_to 'Delete', item, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% else %>
-		<td></td>
-		<td></td>
-		<td></td>	
-		<% end %>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New item', new_item_path %>
+<%= link_to 'New Item', new_item_path %>
